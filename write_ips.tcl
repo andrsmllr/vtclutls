@@ -7,6 +7,15 @@
 #   ips    : list of IP objects (as returned by Vivado's get_ips command).
 #   ipFile : output file name.
 #
+# Example:
+#  In the Vivado Tcl shell type:
+#  $> source ./write_ips.tcl
+#  $> write_ips [get_ips] "foo.tcl"
+#  This will create a file foo.tcl which contains Tcl code to recreate all IP
+#  cores which existed in Vivado when the command was called.
+#  To recreate the IP cores later:
+#  $> source ./foo.tcl
+#
 
 proc write_ips {ips ipFile} {
   set ipFH [open $ipFile "w"];
